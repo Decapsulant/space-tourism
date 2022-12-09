@@ -1,0 +1,29 @@
+.notfound{
+    padding-top: 15rem;
+    text-align: center;
+    min-height: 100%;
+    height: 100%;
+
+
+    &__title{
+        margin-bottom: 15rem;
+    }
+
+    &__btn{
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+        text-decoration: none;
+        padding: 0.8rem 1.6rem;
+        border: 1px solid #fff;
+        transition: .2s linear;
+        text-transform: uppercase;
+
+
+        &:hover{
+            color: $purple;
+            border-color: $purple;
+
+        }
+    }
+}

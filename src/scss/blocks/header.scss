@@ -1,0 +1,297 @@
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    &__inner{
+        position: relative;
+        padding-top: 2.22rem;
+        height: 5.55rem;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 3.05rem;
+
+        &::before{
+            position: absolute;
+            left: 10%;
+            z-index: 2;
+            width: 30rem;
+            content: '';
+            background-color: #fff;
+            height: 0.05rem;
+            opacity: 0.25;
+
+
+            @media (max-width:1420px) {
+                display: none;
+            }
+        }
+        @media (max-width:600px) {
+            padding-right: 3.05rem;
+            height: 4.5rem;
+            padding-top: 0;
+        }
+    }
+    &__logo{
+        width: 2.66rem;
+        height: 2.66rem;
+    }
+
+    &__burger-none{
+        display: none;
+    }
+
+    &__burger{
+        display: none;
+        @media (max-width:600px) {
+        position: relative;
+        display: block;
+        z-index: 1000;
+        padding-right: 1.5rem;
+        width: 24px;
+        height: 21px;
+        span{
+            position: absolute;
+            top: 9px;
+            font-size: 0;
+            display: block;
+            content: '';
+            background-color: $purple;
+            width: 100%;
+            height: 3px;
+        }
+
+        &::before{
+            position: absolute;
+            top: 0;
+            font-size: 0;
+            display: block;
+            content: '';
+            background-color: $purple;
+            width: 100%;
+            height: 3px;
+        }
+
+        &::after{
+            bottom: 0;
+            position: absolute;
+            font-size: 0;
+            display: block;
+            content: '';
+            background-color: $purple;
+            width: 100%;
+            height: 3px;
+
+        }
+}
+    }
+
+    &__burger-close{
+        @media (max-width:600px) {
+        display: block;
+        position: relative;
+        z-index: 1000;
+        padding-right: 1rem;
+        padding-top: 0.6rem;
+        font-size: 0;
+        color: transparent;
+        width: 30px;
+        height: 21px;
+
+        &::before{
+            content: '';
+            position: absolute;
+            background-color: $purple;
+            width: 25px;
+            height: 2px;
+            transform: rotate(130deg);
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            background-color: $purple;
+            width: 25px;
+            height: 2px;
+            transform: rotate(50deg);
+        }
+    }
+    }
+
+    @media (max-width:600px) {
+        &__navbar{
+            transition: all .2s linear;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    &__close{
+        position: absolute;
+        top: 8%;
+        right: 4.5rem;
+
+        visibility: hidden;
+        opacity: 0;
+
+        font-size: 0;
+        color: transparent;
+        cursor: pointer;
+        span{
+            position: absolute;
+            content: '';
+            background-color: $purple;
+            transform: rotate(45deg);
+            width: 24px;
+            height: 3px;
+            z-index: 1000;
+        }
+
+        &::after{
+            position: absolute;
+            content: '';
+            background-color: $purple;
+            transform: rotate(130deg);
+            width: 24px;
+            height: 3px;
+            z-index: 1000;
+        }
+    }
+
+    &__close-show{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    @media(max-width:600px){
+        background-color:$blue;
+    }
+
+}
+
+
+.navbar{
+    width: 46.11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2.77rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40.7742px);
+    height: 5.33rem;
+
+    &__item{
+        position:relative;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        gap: 0.8rem;
+        padding-top: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        transition: all .3s linear;
+        cursor: pointer;
+        padding:40px 0 30px 0;
+        span{
+            font-weight: 700;
+
+
+            @media(max-width:1110px){
+                display: none;
+            }
+        }
+
+        &::after{
+            transition: all .3s linear;
+            position:absolute;
+            bottom:0;
+            content: '';
+            background-color:#fff;
+            width: 100%;
+            height: 3px;
+            opacity: 0;
+
+            @media(max-width:600px){
+                height: 0;
+            }
+        }
+        &:hover{
+            &::after{
+                opacity: 0.5;
+            }
+        }
+
+        @media(max-width:768px){
+            padding-top: 2rem;
+        }
+    }
+
+
+    &__link{
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        transition: all .3s linear;
+        &:active{
+            &::after{
+                opacity:1;
+            }
+        }
+        @media(max-width:600px){
+
+        }
+    }
+
+    @media(max-width:1110px){
+        width: 27rem;
+        gap: 2rem;
+    }
+
+    @media (max-width:600px){
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(40.7742px);
+        position: absolute;
+        top: 0;
+        z-index: 100;
+        width: 65vw;
+        min-height: 100vh;
+        height: 100%;
+        flex-direction: column;
+        align-items: baseline;
+        span{
+            display: block;
+        }
+    }
+    @media (max-width:600px){
+        justify-content: left;
+        position: relative;
+        .navbar__item{
+            padding: 0 20px 0 20px;
+            text-align: left;
+            font-size: 1.3rem;
+
+            &:first-child{
+                padding-top: 8rem;
+            }
+        }
+    }
+}
+
+.active{
+    &::after{
+        opacity:1;
+    }
+}
+
+@media (max-width:600px) {
+    .header__navbar-overlay{
+        transform: translateX(100%);
+    }
+    .header__navbar-show{
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,117 @@
+.crew{
+    background:url("../../assets/image/crew/background-crew-desktop.jpg")center no-repeat ;
+    background-size:cover;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    padding-top:11.1rem;
+    &__inner{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 3.5rem 0 0 0;
+        gap: 2rem;
+
+        @media (max-width:1110px) {
+            flex-direction: column;
+            justify-content: center;
+            gap: 2.2rem;
+        }
+
+        @media (max-width:600px) {
+            flex-direction: column-reverse;
+        }
+    }
+
+
+
+    &__slider-navbar{
+        display: flex;
+        gap: 1.33rem;
+
+        @media (max-width:1110px) {
+            justify-content: center;
+            margin-bottom: 2.2rem;
+        }
+    }
+    &__slider-link{
+        color: inherit;
+        font-size: 0;
+        background-color: #fff;
+        width: 0.83rem;
+        opacity: 0.17;
+        height: 0.83rem;
+        border-radius:50%;
+        cursor: pointer;
+        transition: all .3s linear;
+        
+        &:hover{
+            opacity: 0.7;
+        }
+
+        &--active{
+            opacity: 1;
+        }
+    }
+
+    @media(max-width:768px){
+        background: url(../../assets/image/crew/background-crew-tablet.jpg) center no-repeat;
+        background-size: cover;
+    }
+
+}
+
+.crew-block{
+    display: flex;
+    gap:2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10px;
+    cursor: pointer;
+    &__image{
+
+        img{
+            max-height: 500px;
+        }
+    }
+
+
+    &__name{
+        margin-bottom: 1.5rem;
+        
+
+        @media (max-width:1110px) {
+            font-size: 2.2rem;
+        }
+    }
+    &__bio{
+        max-width: 400px;
+        font-size: 18px;
+        line-height: 32px;
+        color: $purple;
+    }
+    &__role{
+        opacity: 0.5;
+        margin-bottom: 0.83rem;
+    }
+    &__content{
+        text-align: left;
+    }
+
+    @media(max-width:990px){
+        justify-content: center;
+        flex-direction: column;
+        &__image{
+            padding-bottom:4rem;
+            margin:0 auto auto auto;
+
+            img{
+                height: 350px;
+                max-height: 350px;
+            }
+        }
+        &__content{
+            text-align: center;
+        }
+    }
+}
