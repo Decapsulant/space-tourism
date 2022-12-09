@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/VyacheslavBlog/space-tourism.git/static/css/main.4aff0d2a.css",
-    "main.js": "/VyacheslavBlog/space-tourism.git/static/js/main.9a7879fc.js",
+    "main.js": "/VyacheslavBlog/space-tourism.git/static/js/main.db1c6a6a.js",
     "static/js/787.bf6be71c.chunk.js": "/VyacheslavBlog/space-tourism.git/static/js/787.bf6be71c.chunk.js",
     "static/media/background-home-desktop.jpg": "/VyacheslavBlog/space-tourism.git/static/media/background-home-desktop.cdf3864ecbfdf20e8c3b.jpg",
     "static/media/background-destination-desktop.jpg": "/VyacheslavBlog/space-tourism.git/static/media/background-destination-desktop.468b922c69bf5499b4bc.jpg",
@@ -16,11 +16,11 @@
     "index.html": "/VyacheslavBlog/space-tourism.git/index.html",
     "static/media/logo.svg": "/VyacheslavBlog/space-tourism.git/static/media/logo.565f7f2c0534403f11b71994f4311210.svg",
     "main.4aff0d2a.css.map": "/VyacheslavBlog/space-tourism.git/static/css/main.4aff0d2a.css.map",
-    "main.9a7879fc.js.map": "/VyacheslavBlog/space-tourism.git/static/js/main.9a7879fc.js.map",
+    "main.db1c6a6a.js.map": "/VyacheslavBlog/space-tourism.git/static/js/main.db1c6a6a.js.map",
     "787.bf6be71c.chunk.js.map": "/VyacheslavBlog/space-tourism.git/static/js/787.bf6be71c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4aff0d2a.css",
-    "static/js/main.9a7879fc.js"
+    "static/js/main.db1c6a6a.js"
   ]
 }
