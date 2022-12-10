@@ -2,12 +2,17 @@ import axios from 'axios'
 import React from 'react'
 import { Images } from '../Destination'
 import CrewBlock from './CrewBlock'
-import { Carousel} from 'react-responsive-carousel'
+
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 import {motion} from "framer-motion"
 import { elementAnimation } from '../../../animation'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+import { Carousel} from 'react-responsive-carousel'
+import MediaQuery from 'react-responsive';
 
 export interface CrewItems {
     name:string
@@ -19,6 +24,15 @@ export interface CrewItems {
  const Crew = () => {
   const [items, setItems] = React.useState<CrewItems[]>([])
   const [error, setError] = React.useState(false)
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   const getCrew = () => {
     try{
       axios.get(`https://63404624e44b83bc73cd3e47.mockapi.io/Crew`)
@@ -50,10 +64,19 @@ export interface CrewItems {
 
             {error ? <div className='error'>Error with network</div>
             :<>
-          <Carousel showThumbs={false}  showArrows={false} autoPlay={true}
-          interval={10000} swipeable={true} showStatus={false} preventMovementUntilSwipeScrollTolerance={true} swipeScrollTolerance={40} transitionTime={1000}>
+            <MediaQuery maxWidth={1110}>
+          <Slider {...settings}>
+             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
+          </Slider>
+            </MediaQuery>
+
+            <MediaQuery minWidth={1110}>
+            <Carousel showThumbs={false}  showArrows={false} autoPlay={true}
+          interval={10000} swipeable={true} showStatus={false} preventMovementUntilSwipeScrollTolerance={true} swipeScrollTolerance={40} infiniteLoop={true} transitionTime={1000}>
             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
           </Carousel>
+            </MediaQuery>
+
             </>
           }
 
