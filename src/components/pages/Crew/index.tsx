@@ -27,10 +27,13 @@ export interface CrewItems {
 
   const settings = {
     dots: true,
+    fade:true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    arrows:false
+    
   };
 
   const getCrew = () => {
@@ -72,7 +75,7 @@ export interface CrewItems {
 
             <MediaQuery minWidth={1110}>
             <Carousel showThumbs={false}  showArrows={false} autoPlay={true}
-          interval={10000} swipeable={true} showStatus={false} preventMovementUntilSwipeScrollTolerance={true} swipeScrollTolerance={40} infiniteLoop={true} transitionTime={1000}>
+          interval={7000} swipeable={true} showStatus={false} preventMovementUntilSwipeScrollTolerance={true} swipeScrollTolerance={40} infiniteLoop={true} transitionTime={1000}>
             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
           </Carousel>
             </MediaQuery>
