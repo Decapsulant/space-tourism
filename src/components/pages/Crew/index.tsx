@@ -52,15 +52,15 @@ export interface CrewItems {
             :<>
           <Carousel
           showThumbs={false}
-          infiniteLoop={true}
-          preventMovementUntilSwipeScrollTolerance={true}
+          // infiniteLoop={true}
+          // preventMovementUntilSwipeScrollTolerance={true}
           showArrows={false}
           autoPlay={true}
           interval={10000}
           swipeable={true}
           showStatus={false}
-          swipeScrollTolerance={40}
-          transitionTime={1500}>
+          swipeScrollTolerance={20}
+          transitionTime={1000}>
             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
           </Carousel>
             </>
