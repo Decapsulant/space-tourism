@@ -51,16 +51,10 @@ export interface CrewItems {
             {error ? <div className='error'>Error with network</div>
             :<>
           <Carousel
-          showThumbs={false}
           // infiniteLoop={true}
           // preventMovementUntilSwipeScrollTolerance={true}
-          showArrows={false}
-          autoPlay={true}
-          interval={10000}
-          swipeable={true}
-          showStatus={false}
-          swipeScrollTolerance={20}
-          transitionTime={1000}>
+          showThumbs={false}  showArrows={false} autoPlay={true}
+          interval={10000} swipeable={true} showStatus={false} swipeScrollTolerance={10} transitionTime={1000}>
             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
           </Carousel>
             </>
