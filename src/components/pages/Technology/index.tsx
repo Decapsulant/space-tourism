@@ -60,13 +60,14 @@ const Technology = () => {
                 </ul>
                 {items.map(obj => <TechnologyBlock key={obj.name} {...obj} />)}
               </div>
+              <div className='technology__wrapper-img'>
               <MediaQuery minWidth={1300}>
                 {items.map(obj => <img key={obj.name} className='technology__image' src={obj.images.portrait} />)}
               </MediaQuery>
               <MediaQuery maxWidth={1299}>
                 {items.map(obj => <img key={obj.name} className='technology__image' src={obj.images.landscape} />)}
               </MediaQuery>
-              
+              </div>
             </>
         }
       </div>

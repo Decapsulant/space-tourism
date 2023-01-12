@@ -3,7 +3,7 @@ import React from 'react'
 import DestinationBlock from './DestinationBlock'
 import {motion} from "framer-motion"
 import { elementAnimation } from '../../../animation'
-import DestinationSleletonImg from './DestinationSkeletonsImg'
+import DestinationSkeletonImg from './DestinationSkeletonsImg'
 
 type NavbarData = {name:string}
 const navbarData:NavbarData[] = [
@@ -30,7 +30,7 @@ export interface Items {
   const [items, setItems] = React.useState<Items[]>([])
   const [planetId,setPlanetId] = React.useState(0)
   const [isError, setIsError] = React.useState(false)
-  const [loading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(true)
 
   const onChangePlanets = (id:number) => {
     setPlanetId(id)
@@ -38,7 +38,6 @@ export interface Items {
 
   const getDestination = () => {
     try{
-      setLoading(false)
       axios.get<Items[]>(`https://63404624e44b83bc73cd3e47.mockapi.io/destinations?id=${planetId}`)
       .then(res => {
         setItems(res.data)
@@ -69,8 +68,10 @@ export interface Items {
         
           {isError ? <div className='error'>Error with network</div>
           :<>
-          {loading ? <DestinationSleletonImg className='destination__img'/> : items.map(obj => <img  className='destination__img' alt='destination' key={obj.id} src={obj.images.webp}/> )}
-          
+          <div className='destination__wrapper-img'>
+          {loading ? <DestinationSkeletonImg className='destination__img'/>
+          : items.map(obj => <img  className='destination__img' alt='destination' key={obj.id} src={obj.images.webp}/> )}
+          </div>
           <div className="destination__content">
           <div className='destination__navbar-wrapper'>
           <ul className="destination__navbar">
