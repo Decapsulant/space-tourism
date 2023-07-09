@@ -13,7 +13,7 @@ const onclickOpenBurger = () => {
   return (
     <motion.header
     className='header'
-    initial="hiden"
+    initial="hidden"
     whileInView="visible"
     custom={0}
     variants={elementTopAnimation} >

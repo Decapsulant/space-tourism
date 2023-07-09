@@ -3,16 +3,13 @@ import React from 'react'
 import { Images } from '../Destination'
 import CrewBlock from './CrewBlock'
 
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 import {motion} from "framer-motion"
 import { elementAnimation } from '../../../animation'
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel} from 'react-responsive-carousel'
-import MediaQuery from 'react-responsive';
 
 export interface CrewItems {
     name:string
@@ -27,29 +24,27 @@ export interface CrewItems {
 
   const settings = {
     dots: true,
-    fade:true,
+    arrows:false,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows:false
-    
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 10000,
+    fade:true,
   };
-
-  const getCrew = () => {
-    try{
-      axios.get(`https://63404624e44b83bc73cd3e47.mockapi.io/Crew`)
-    .then(res => {
-      setItems(res.data)
-      console.log(res.data)
-    }).catch(err => setError(true))
-    }catch(err){
-      setError(true)
-    }
-  }
 
 
   React.useEffect(() =>{
+
+    const  getCrew = async() => {
+      try{
+      const {data}= await axios.get(`https://63404624e44b83bc73cd3e47.mockapi.io/Crew`)
+      setItems(data)
+      }catch(err){
+        setError(true)
+      }
+    }
     getCrew()
   },[])
 
@@ -58,36 +53,35 @@ export interface CrewItems {
 
   return (
     <motion.section
-    initial="hiden"
+    initial="hidden"
     whileInView="visible"
     className='crew'>
         <div className="container">
         <motion.h4 variants={elementAnimation} className='page__title'><span>02</span>Meet your crew</motion.h4>
-          <motion.div variants={elementAnimation} className="crew__inner">
+          <div className="crew__inner">
 
-            {error ? <div className='error'>Error with network</div>
+            {error ? <div className='error'>connection error</div>
             :<>
-            <MediaQuery maxWidth={1110}>
-          <Slider {...settings}>
-             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
-          </Slider>
-            </MediaQuery>
-
-            <MediaQuery minWidth={1110}>
-            <Carousel showThumbs={false}  showArrows={false} autoPlay={true}
-          interval={7000} swipeable={true} showStatus={false} preventMovementUntilSwipeScrollTolerance={true} swipeScrollTolerance={40} infiniteLoop={true} transitionTime={1000}>
+            <div>
+        <Slider {...settings}>
             {items.map(obj =><CrewBlock key={obj.role} {...obj}/> )}
-          </Carousel>
-            </MediaQuery>
-
+        </Slider>
+        </div>
             </>
           }
 
 
 
-          </motion.div>
+          </div>
         </div>
     </motion.section>
+
+
+
+
+
+
+
   )
 }
 export default Crew

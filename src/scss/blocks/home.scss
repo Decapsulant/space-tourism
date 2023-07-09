@@ -6,7 +6,7 @@
     overflow-x:hidden;
     &__inner{
         position: relative;
-        padding-top: 11.1rem;
+        padding-top: 9rem;
 
 
         @media (max-width:1110px) {
@@ -24,19 +24,23 @@
     }
 
     &__content{
-       max-width: 25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5rem;
+       @media (max-width:960px) {
 
-       @media (max-width:768px) {
-
-        max-width: 100%;
+        flex-direction: column;
+        gap: 3rem;
+        padding-bottom: 2rem;
        }
     }
     &__title{
-        margin-bottom: 1.3rem;
+        margin-bottom: 0.5rem;
     }
     &__text{
         line-height: 1.7rem;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: $purple;
         max-width: 22.2rem;
         padding-bottom:1.6rem;
@@ -44,12 +48,9 @@
     &__subtitle{
         margin-bottom: 0;
         font-size: 1.3rem;
-        margin-bottom: 1.3rem;
+        margin-bottom: 1rem;
     }
     &__btn{
-        position: absolute;
-        bottom: 11%;
-        right: 0;
         border-radius: 50%;
         border: none;
         width: 15.27rem;
@@ -65,19 +66,15 @@
         &:hover{
             box-shadow: 0 0 0 4.88rem rgba(255,255,255,0.1);
         }
-
-        @media (max-width:1110px) {
-            position:static;
-            margin:4.44rem 0 4.44rem;
-        }
     }
 
     @media(max-width:1110px) {
         text-align: center;
     }
 
-    @media(max-width:768px) {
-        background: url("../../assets/image/home/background-home-tablet.jpg");
+    @media(max-width:960px) {
+        background: url("../../assets/image/home/background-home-tablet.jpg") center no-repeat;
+        background-size:cover;
     }
     @media(max-width:550px) {
         background: url("../../assets/image/home/background-home-mobile.jpg")center no-repeat;

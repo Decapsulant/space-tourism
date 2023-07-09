@@ -3,7 +3,6 @@ import React from 'react'
 import DestinationBlock from './DestinationBlock'
 import {motion} from "framer-motion"
 import { elementAnimation } from '../../../animation'
-import DestinationSkeletonImg from './DestinationSkeletonsImg'
 
 type NavbarData = {name:string}
 const navbarData:NavbarData[] = [
@@ -18,46 +17,39 @@ export type Images = {
 }
 
 export interface Items {
-  id:string
-  name: string
-  images: Images
-  description: string
-  distance: string
-  travel: string
+    id:string
+    name: string
+    images: Images
+    description: string
+    distance: string
+    travel: string
   }
 
  const Destination = () => {
   const [items, setItems] = React.useState<Items[]>([])
   const [planetId,setPlanetId] = React.useState(0)
   const [isError, setIsError] = React.useState(false)
-  const [loading, setLoading] = React.useState(true)
 
   const onChangePlanets = (id:number) => {
     setPlanetId(id)
   }
 
-  const getDestination = () => {
-    try{
-      axios.get<Items[]>(`https://63404624e44b83bc73cd3e47.mockapi.io/destinations?id=${planetId}`)
-      .then(res => {
-        setItems(res.data)
-        setLoading(false)
-      }).catch(err => setIsError(true))
-      }catch(err){
-        setIsError(true)
-      }finally{
-        setLoading(false)
-      }
-  }
-
   React.useEffect(() =>{
+    const getDestination = async () => {
+      try{
+        const { data } = await axios.get<Items[]>(`https://63404624e44b83bc73cd3e47.mockapi.io/destinations?id=${planetId}`)
+        setItems(data)
+        }catch(err){
+          setIsError(true)
+        }
+    }
     getDestination()
   },[planetId])
 
 
   return (
     <motion.section
-    initial="hiden"
+    initial="hidden"
     whileInView="visible"
     className='destination'>
       <div className="container">
@@ -66,22 +58,18 @@ export interface Items {
     
 
         
-          {isError ? <div className='error'>Error with network</div>
+          {isError ? <div className='error'>connection error</div>
           :<>
-          <div className='destination__wrapper-img'>
-          {loading ? <DestinationSkeletonImg className='destination__img'/>
-          : items.map(obj => <img  className='destination__img' alt='destination' key={obj.id} src={obj.images.webp}/> )}
-          </div>
+
           <div className="destination__content">
           <div className='destination__navbar-wrapper'>
           <ul className="destination__navbar">
             {navbarData.map((obj,i) => <li key={obj.name}>
-                <a onClick={() =>onChangePlanets(i)} className={planetId === i ? "destination__navbar-link destination__navbar-link--active" : 'destination__navbar-link'}>{obj.name}
-                </a>
+                <motion.button variants={elementAnimation} custom={i}  onClick={() =>onChangePlanets(i)} className={planetId === i ? "destination__navbar-btn destination__navbar-btn--active" : 'destination__navbar-btn'}>{obj.name}</motion.button>
               </li>)}
           </ul>
           </div>
-          {items.map(obj => <DestinationBlock key={obj.name} {...obj}/>)}
+          {items.map(obj => <DestinationBlock key={obj.id} {...obj}/>)}
           </div>
           </>}
 

@@ -1,5 +1,5 @@
 export const elementAnimation = {
-    hiden:{
+    hidden:{
         opacity:0
     },
     visible:(custom:number)=>({
@@ -8,7 +8,7 @@ export const elementAnimation = {
     })
 }
 export const elementTopAnimation = {
-    hiden:{
+    hidden:{
         opacity:0,
         y:-50
     },
