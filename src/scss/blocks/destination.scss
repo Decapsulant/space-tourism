@@ -100,7 +100,6 @@
 
     &__wrapper-img{
         width: 100%;
-        display: block;
 
         img{
             width: 350px;
@@ -112,6 +111,9 @@
         }
         @media(max-width:1110px){
             min-height: 400px;
+        }
+        @media(max-width:600px){
+            min-height: 250px;
         }
     }
     &__text{

@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import {motion} from "framer-motion"
 
 import logo from "../assets/image/logo.svg"
-import { elementTopAnimation } from '../animation'
+import { elementAnimation } from '../animation'
 const Header = () => {
 const [openBurger, setOpenBurger] = React.useState(false)
 
@@ -16,7 +16,7 @@ const onclickOpenBurger = () => {
     initial="hidden"
     whileInView="visible"
     custom={0}
-    variants={elementTopAnimation} >
+    variants={elementAnimation} >
             <div className="header__inner">
                 <div className="header__logo">
                     <img src={logo} alt="logo" />
