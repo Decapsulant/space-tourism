@@ -1,141 +1,112 @@
-.crew{
-    background:url("../../assets/image/crew/background-crew-desktop.jpg")center no-repeat;
-    background-size:cover;
-    height: 100%;
-    min-height: 100vh;
+.crew {
+  background: url('../../assets/image/crew/background-crew-desktop.jpg') center no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 9rem;
+  &__inner {
     width: 100%;
-    padding-top:9rem;
-    &__inner{
-        width: 100%;
-        padding: 3.5rem 0 0 0;
+    padding: 3.5rem 0 2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    background: url(../../assets/image/crew/background-crew-tablet.jpg) center no-repeat;
+    background-size: cover;
+  }
+
+  &__slider-wrapper {
+    height: 400px;
+
+    @media (max-width: 990px) {
+      height: 700px;
     }
-
-
-
-    &__slider-navbar{
-        display: flex;
-        gap: 1.33rem;
-
-        @media (max-width:1110px) {
-            justify-content: center;
-            margin-bottom: 2.2rem;
-        }
-    }
-    &__slider-link{
-        color: inherit;
-        font-size: 0;
-        background-color: #fff;
-        width: 0.83rem;
-        opacity: 0.17;
-        height: 0.83rem;
-        border-radius:50%;
-        cursor: pointer;
-        transition: all .3s linear;
-        
-        &:hover{
-            opacity: 0.7;
-        }
-
-        &--active{
-            opacity: 1;
-        }
-    }
-
-    @media(max-width:768px){
-        background: url(../../assets/image/crew/background-crew-tablet.jpg) center no-repeat;
-        background-size: cover;
-    }
-
+  }
 }
 
-.crew-block{
-    display: flex;
-    gap:2rem;
-    justify-content: space-between;
-    align-items: center;
-    padding:0 10px;
-    cursor: pointer;
-    &__image{
-    
-        img{
-            display:block;
-            width:400px;
-            height:400px;
-        }
+.crew-block {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  &__image {
+    img {
+      display: block;
+      max-width: 400px;
+      max-height: 400px;
     }
+  }
 
+  &__name {
+    margin-bottom: 1.5rem;
 
-    &__name{
-        margin-bottom: 1.5rem;
-        
+    @media (max-width: 1110px) {
+      font-size: 2.2rem;
+    }
+  }
+  &__bio {
+    max-width: 400px;
+    font-size: 18px;
+    line-height: 32px;
+    color: $purple;
+  }
+  &__role {
+    opacity: 0.5;
+    margin-bottom: 0.83rem;
+  }
+  &__content {
+    text-align: left;
+  }
 
-        @media (max-width:1110px) {
-            font-size: 2.2rem;
-        }
-    }
-    &__bio{
-        max-width: 400px;
-        font-size: 18px;
-        line-height: 32px;
-        color: $purple;
-    }
-    &__role{
-        opacity: 0.5;
-        margin-bottom: 0.83rem;
-    }
-    &__content{
-        text-align: left;
-    }
+  @media (max-width: 990px) {
+    justify-content: center;
+    flex-direction: column;
+    &__image {
+      margin: 0 auto auto auto;
 
-    @media(max-width:990px){
-        justify-content: center;
-        flex-direction: column;
-        &__image{
-            margin:0 auto auto auto;
-
-            img{
-                height: 350px;
-                max-height: 350px;
-            }
-        }
-        &__content{
-            text-align: center;
-        }
+      img {
+        height: 350px;
+        max-height: 350px;
+      }
     }
+    &__content {
+      text-align: center;
+    }
+  }
 }
 .slick-dots li button:before {
-   color: #fff;
-   font-size:12px;
-  }
-  
-  .slick-dots li.slick-active button::before {
-    color:#fff;
-    opacity:1;
-  }
+  color: #fff;
+  font-size: 12px;
+}
 
-  @keyframes showElement {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+.slick-dots li.slick-active button::before {
+  color: #fff;
+  opacity: 1;
+}
 
-  .slick-dots {
-    position: absolute;
-    top: -10%;
-    left: 0;
-    max-width: max-content;
-    display: flex;
-    justify-content: center;
-    animation: showElement 1s ease-in-out forwards;
-    @media(max-width:990px){
-        display: none;
-        li{
-            display: none;
-        }
-    }
-    
+@keyframes showElement {
+  0% {
+    opacity: 0;
   }
-  
+  100% {
+    opacity: 1;
+  }
+}
+
+.slick-dots {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  max-width: max-content;
+  display: flex;
+  justify-content: center;
+  animation: showElement 1s ease-in-out forwards;
+  @media (max-width: 990px) {
+    display: none;
+    li {
+      display: none;
+    }
+  }
+}
